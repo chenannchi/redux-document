@@ -38,7 +38,22 @@ export function Counter() {
           -
         </button>
       </div>
-
+      <div className={styles.row}>
+        <input
+          className={styles.textbox}
+          aria-label="Set increment amount"
+          value={incrementAmount}
+          onChange={e => setIncrementAmount(e.target.value)}
+        />
+        <button
+          className={styles.button}
+          aria-label="Increment value"
+          onClick={() => dispatch(reset())}
+          id={styles.small}
+        >
+          Reset
+        </button>
+      </div>
       <div className={styles.row}>
         <button
           className={styles.button}
@@ -54,12 +69,7 @@ export function Counter() {
         >
           Add Async
         </button>
-        <input
-          className={styles.textbox}
-          aria-label="Set increment amount"
-          value={incrementAmount}
-          onChange={e => setIncrementAmount(e.target.value)}
-        />
+
 
         <button
           className={styles.button}
@@ -76,7 +86,7 @@ export function Counter() {
           Minus Async
         </button>
       </div>
-      <div>
+      <div className={styles.row}>
         <button
           className={styles.asyncButton}
           onClick={() => dispatch(multiply(Number(incrementAmount) || 0))}
@@ -92,13 +102,7 @@ export function Counter() {
           Divide By Amount
         </button>
       </div>
-      <button
-        className={styles.button}
-        aria-label="Increment value"
-        onClick={() => dispatch(reset())}
-      >
-        Reset
-      </button>
+      
     </div>
   );
 }
