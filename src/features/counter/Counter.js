@@ -8,6 +8,7 @@ import {
   decrementByAmount,
   decrementAsync,
   selectCount,
+  reset
 } from './counterSlice';
 import styles from './Counter.module.css';
 
@@ -35,13 +36,8 @@ export function Counter() {
           -
         </button>
       </div>
+      
       <div className={styles.row}>
-        <input
-          className={styles.textbox}
-          aria-label="Set increment amount"
-          value={incrementAmount}
-          onChange={e => setIncrementAmount(e.target.value)}
-        />
         <button
           className={styles.button}
           onClick={() =>
@@ -56,6 +52,13 @@ export function Counter() {
         >
           Add Async
         </button>
+        <input
+          className={styles.textbox}
+          aria-label="Set increment amount"
+          value={incrementAmount}
+          onChange={e => setIncrementAmount(e.target.value)}
+        />
+
         <button
           className={styles.button}
           onClick={() =>
@@ -71,6 +74,13 @@ export function Counter() {
           Minus Async
         </button>
       </div>
+      <button
+        className={styles.button}
+        aria-label="Increment value"
+        onClick={() => dispatch(reset())}
+      >
+        Reset
+      </button>
     </div>
   );
 }
