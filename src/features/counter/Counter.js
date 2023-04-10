@@ -8,7 +8,9 @@ import {
   decrementByAmount,
   decrementAsync,
   selectCount,
-  reset
+  reset,
+  multiply,
+  divide
 } from './counterSlice';
 import styles from './Counter.module.css';
 
@@ -27,7 +29,7 @@ export function Counter() {
         >
           +
         </button>
-        <span className={styles.value}>{count}</span>
+        <span className={styles.value}>{count.toFixed(2)}</span>
         <button
           className={styles.button}
           aria-label="Decrement value"
@@ -36,7 +38,7 @@ export function Counter() {
           -
         </button>
       </div>
-      
+
       <div className={styles.row}>
         <button
           className={styles.button}
@@ -72,6 +74,22 @@ export function Counter() {
           onClick={() => dispatch(decrementAsync(Number(incrementAmount) || 0))}
         >
           Minus Async
+        </button>
+      </div>
+      <div>
+        <button
+          className={styles.asyncButton}
+          onClick={() => dispatch(multiply(Number(incrementAmount) || 0))}
+        >
+          Multiply By Amount
+        </button>
+        <button
+          className={styles.button}
+          onClick={() =>
+            dispatch(divide(Number(incrementAmount) || 0))
+          }
+        >
+          Divide By Amount
         </button>
       </div>
       <button

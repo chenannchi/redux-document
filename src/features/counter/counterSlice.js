@@ -22,13 +22,19 @@ export const counterSlice = createSlice({
     decrementByAmount:(state, action)=>{
       state.value -= action.payload
     },
+    multiply:(state, action) => {
+      state.value *= action.payload
+    },
+    divide:(state, action) => {
+      state.value /= action.payload
+    },
     reset:(state, action)=>{
       state.value = 0
     }
   },
 })
 
-export const { increment, decrement, incrementByAmount, decrementByAmount, reset } = counterSlice.actions
+export const { increment, decrement, incrementByAmount, decrementByAmount, reset, multiply, divide } = counterSlice.actions
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
